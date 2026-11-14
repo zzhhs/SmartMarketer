@@ -1,0 +1,672 @@
+body {
+  margin: 0;
+  background: #14161d;
+}
+
+#dahua {
+  color-scheme: dark;
+  --background: #14161d;
+  --sidebar: #161821;
+  --surface: #1b1e28;
+  --surface-inset: #171a23;
+  --surface-hover: #252837;
+  --line: #303443;
+  --text: #f1f0f7;
+  --muted: #a6aabd;
+  --accent: #b29bff;
+  --accent-text: #1d1238;
+  --accent-surface: #2e2845;
+  --accent-border: #685690;
+  --radius: 12px;
+  --panel-padding: clamp(14px, 1.65vw, 24px);
+  display: grid;
+  grid-template-columns: 226px minmax(0, 1fr);
+  min-height: 100vh;
+  background: var(--background);
+  color: var(--text);
+  font: 14px/1.55 Geist, Inter, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  overflow-wrap: anywhere;
+}
+
+#dahua * {
+  box-sizing: border-box;
+}
+
+#dahua h1,
+#dahua h2,
+#dahua p {
+  margin: 0;
+}
+
+#dahua h1 {
+  font-size: clamp(25px, 2.2vw, 33px);
+  font-weight: 680;
+  letter-spacing: -.025em;
+  line-height: 1.25;
+}
+
+#dahua h2 {
+  font-size: 16px;
+  font-weight: 650;
+  line-height: 1.4;
+}
+
+#dahua small,
+#dahua p {
+  color: var(--muted);
+}
+
+#dahua small {
+  font-size: 12px;
+}
+
+#dahua strong {
+  font-weight: 650;
+}
+
+#dahua aside {
+  position: sticky;
+  top: 0;
+  align-self: start;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-height: 100vh;
+  padding: 25px 16px 16px;
+  background: var(--sidebar);
+  border-right: 1px solid var(--line);
+}
+
+#dahua aside > strong {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-inline: 3px;
+  font-size: 14px;
+  letter-spacing: -.02em;
+}
+
+#dahua .logo {
+  display: grid;
+  place-items: center;
+  flex: 0 0 28px;
+  height: 28px;
+  border: 1px solid #c1adff;
+  border-radius: 8px;
+  background: var(--accent);
+  color: var(--accent-text);
+}
+
+#dahua nav {
+  display: grid;
+  gap: 5px;
+}
+
+#dahua nav button {
+  min-height: 42px;
+  padding: 9px 12px 9px 15px;
+  border-color: transparent;
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  text-align: start;
+}
+
+#dahua nav button:hover {
+  background: var(--surface-hover);
+  color: var(--text);
+}
+
+#dahua nav button[aria-current="page"] {
+  background: var(--accent-surface);
+  box-shadow: inset 3px 0 var(--accent);
+  color: #f1eaff;
+}
+
+#dahua .account {
+  order: 1;
+  margin-top: auto;
+  padding: 12px 14px;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  background: var(--surface);
+}
+
+#dahua main {
+  width: 100%;
+  max-width: 1640px;
+  min-width: 0;
+  justify-self: center;
+  padding: clamp(18px, 2.15vw, 34px);
+}
+
+#dahua .heading {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+#dahua .heading h1 {
+  margin-top: 4px;
+}
+
+#dahua .heading > small {
+  padding: 3px 9px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: var(--surface-inset);
+}
+
+#dahua .stack,
+#dahua .grid,
+#dahua .split {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+}
+
+#dahua .grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 150px), 1fr));
+}
+
+#dahua .split {
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 1fr);
+}
+
+#dahua .stack > *,
+#dahua .grid > *,
+#dahua .split > * {
+  min-width: 0;
+}
+
+#dahua .box {
+  min-width: 0;
+  padding: var(--panel-padding);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+
+#dahua .box .box {
+  padding: 13px;
+  border-radius: 8px;
+  background: var(--surface-inset);
+}
+
+#dahua .metric {
+  color: var(--text);
+  font-size: clamp(20px, 2.25vw, 32px);
+  font-weight: 650;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -.03em;
+  line-height: 1.2;
+}
+
+#dahua button,
+#dahua input,
+#dahua select,
+#dahua textarea {
+  font: inherit;
+}
+
+#dahua button {
+  min-height: 34px;
+  padding: 6px 11px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--surface-inset);
+  color: var(--text);
+  cursor: pointer;
+}
+
+#dahua button:hover {
+  border-color: #53586d;
+  background: var(--surface-hover);
+}
+
+#dahua button.primary {
+  border-color: var(--accent);
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 650;
+}
+
+#dahua button.primary:hover {
+  border-color: #c7b8ff;
+  background: #c7b8ff;
+}
+
+#dahua button[aria-pressed="true"] {
+  border-color: var(--accent-border);
+  background: var(--accent-surface);
+  color: #f1eaff;
+}
+
+#dahua :is(button, input, select, textarea):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+#dahua .row,
+#dahua .controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+
+#dahua .row {
+  justify-content: space-between;
+}
+
+#dahua .table-wrap {
+  overflow-x: auto;
+}
+
+#dahua table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  font-variant-numeric: tabular-nums;
+}
+
+#dahua th,
+#dahua td {
+  padding: 11px 12px;
+  border-bottom: 1px solid var(--line);
+  text-align: start;
+}
+
+#dahua th {
+  border-top: 1px solid var(--line);
+  background: var(--surface-inset);
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 550;
+  white-space: nowrap;
+}
+
+#dahua tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+#dahua tbody tr:hover {
+  background: var(--surface-hover);
+}
+
+#dahua .account-layout ~ .box :is(th, td):nth-child(n + 3) {
+  text-align: end;
+  white-space: nowrap;
+}
+
+#dahua .entry {
+  padding-block: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+#dahua label {
+  display: grid;
+  gap: 6px;
+  min-width: 0;
+}
+
+#dahua input,
+#dahua select,
+#dahua textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 9px 10px;
+  border: 1px solid var(--line);
+  border-radius: 7px;
+  background: var(--surface-inset);
+  color: var(--text);
+}
+
+#dahua input::file-selector-button {
+  margin-inline-end: 9px;
+  padding: 5px 8px;
+  border: 1px solid var(--line);
+  border-radius: 5px;
+  background: var(--surface-hover);
+  color: var(--text);
+  font: inherit;
+  cursor: pointer;
+}
+
+#dahua textarea {
+  min-height: 110px;
+  resize: vertical;
+}
+
+#dahua .empty {
+  display: grid;
+  place-items: center;
+  gap: 8px;
+  min-height: 112px;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-inset);
+  color: var(--muted);
+  text-align: center;
+  white-space: pre-wrap;
+}
+
+#dahua label.empty {
+  min-height: 160px;
+  border-style: dashed;
+}
+
+#dahua .notice {
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface-inset);
+}
+
+#dahua .notice button {
+  margin: 3px;
+}
+
+#dahua .reference {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+}
+
+#dahua .shade {
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  display: flex;
+  justify-content: flex-end;
+  background: rgb(9 10 16 / 72%);
+}
+
+#dahua .drawer {
+  display: grid;
+  align-content: start;
+  gap: 15px;
+  width: min(400px, 100%);
+  padding: 20px;
+  overflow: auto;
+  border-left: 1px solid var(--line);
+  background: var(--surface);
+}
+
+#dahua .drawer [role="alert"] {
+  color: #ff9eab;
+}
+
+#dahua .bar {
+  height: 6px;
+  overflow: hidden;
+  border-radius: 4px;
+  background: var(--line);
+}
+
+#dahua .bar span {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: var(--accent);
+}
+
+#dahua .account-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(280px, 1fr);
+  align-items: stretch;
+  gap: 14px;
+}
+
+#dahua .account-layout > .stack {
+  gap: 0;
+  min-width: 0;
+}
+
+#dahua .account-layout > .stack > .box:first-child {
+  border-radius: var(--radius) var(--radius) 0 0;
+}
+
+#dahua .account-layout > .stack > .box + .box {
+  border-top: 0;
+  border-radius: 0 0 var(--radius) var(--radius);
+}
+
+#dahua .account-layout > .stack > .box:first-child .grid {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 104px), 1fr));
+  gap: 10px;
+}
+
+#dahua .account-layout > .stack > .box:first-child .grid .box {
+  gap: 4px;
+  padding: 0 0 0 12px;
+  border: 0;
+  border-left: 1px solid var(--line);
+  border-radius: 0;
+  background: transparent;
+}
+
+#dahua .account-trend {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+#dahua .account-trend:not(:has(line)) {
+  background: repeating-linear-gradient(
+    to bottom,
+    var(--line) 0 1px,
+    transparent 1px calc(100% / 4)
+  ) 68.75% 50% / 89.19% 71.43% no-repeat;
+}
+
+#dahua .account-trend line {
+  stroke: var(--line);
+}
+
+#dahua .account-trend text {
+  fill: var(--muted);
+  font-size: 13px;
+}
+
+#dahua .account-trend polygon {
+  fill: rgb(178 155 255 / 13%);
+}
+
+#dahua .account-trend polyline {
+  fill: none;
+  stroke: var(--accent);
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 2.2px;
+  vector-effect: non-scaling-stroke;
+}
+
+#dahua .account-trend circle {
+  fill: var(--surface);
+  stroke: var(--accent);
+  stroke-width: 2px;
+}
+
+#dahua .account-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  min-height: 390px;
+  contain: size;
+}
+
+#dahua .account-list > button {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 5px 10px;
+  text-align: start;
+}
+
+#dahua .account-tiles {
+  display: grid;
+  grid-auto-rows: max-content;
+  align-content: start;
+  flex: 1 1 auto;
+  min-height: 0;
+  padding: 3px 6px 3px 3px;
+  overflow-y: auto;
+  scrollbar-color: #505366 var(--surface);
+  scrollbar-gutter: stable;
+}
+
+#dahua .account-tile {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, .85fr);
+  align-items: center;
+  gap: 4px 8px;
+  min-width: 0;
+  padding: 8px 7px;
+  border-color: transparent transparent var(--line);
+  border-radius: 0;
+  background: transparent;
+  text-align: start;
+}
+
+#dahua .account-tile:hover,
+#dahua .account-tile[aria-pressed="true"] {
+  border-color: var(--accent-border);
+  border-radius: 7px;
+}
+
+#dahua .account-tile > span {
+  color: var(--muted);
+  font-size: 12px;
+}
+
+#dahua .account-tile > small {
+  text-align: end;
+}
+
+#dahua .account-tile-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+#dahua .account-mark {
+  display: grid;
+  place-items: center;
+  flex: 0 0 25px;
+  height: 25px;
+  border-radius: 6px;
+  background: var(--accent-surface);
+  color: var(--accent);
+  font-size: 12px;
+  font-weight: 650;
+}
+
+@media (max-width: 1180px) {
+  #dahua {
+    grid-template-columns: 190px minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 920px) {
+  #dahua .account-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #dahua .account-list {
+    min-height: 0;
+    contain: none;
+  }
+
+  #dahua .account-tiles {
+    max-height: 300px;
+  }
+}
+
+@media (max-width: 740px) {
+  #dahua {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #dahua aside {
+    position: static;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 10px;
+    min-height: 0;
+    padding: 12px 14px;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+
+  #dahua .account {
+    grid-column: 2;
+    grid-row: 1;
+    margin: 0;
+    padding: 5px 8px;
+    font-size: 12px;
+  }
+
+  #dahua nav {
+    grid-column: 1 / -1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  #dahua nav button {
+    min-height: 36px;
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+
+  #dahua nav button[aria-current="page"] {
+    box-shadow: inset 0 -2px var(--accent);
+  }
+
+  #dahua main {
+    padding: 16px 12px;
+  }
+
+  #dahua .heading {
+    margin-bottom: 16px;
+  }
+
+  #dahua .split {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  #dahua .account-trend:not(:has(line)) text {
+    font-size: 20px;
+  }
+
+  #dahua th,
+  #dahua td {
+    padding: 9px 8px;
+  }
+}
+
+@media (max-width: 480px) {
+  #dahua .account-layout > .stack > .box:first-child .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  #dahua .account-layout > .stack > .box:first-child .grid .box {
+    padding-left: 6px;
+  }
+
+  #dahua .metric {
+    font-size: 19px;
+  }
+
+  #dahua .account-trend:not(:has(line)) text {
+    font-size: 25px;
+  }
+}
